@@ -1,0 +1,30 @@
+{% extends 'gallery/base.html' %}
+
+{% block title %}Home - Gallery App{% endblock %}
+
+{% block content %}
+<div class="card text-center">
+    <h1>Welcome to Gallery App, {{ user.username }}!</h1>
+    <p style="margin-top: 1rem; color: #7f8c8d;">Explore our collection of images. Choose a category below:</p>
+</div>
+
+<div class="gallery-grid">
+    <div class="card text-center">
+        <h3>🚗 Cars Gallery</h3>
+        <p style="margin: 1rem 0; color: #7f8c8d;">Explore beautiful car images</p>
+        <a href="{% url 'cars' %}" class="btn btn-primary">View Cars</a>
+    </div>
+    
+    <div class="card text-center">
+        <h3>🌸 Flowers Gallery</h3>
+        <p style="margin: 1rem 0; color: #7f8c8d;">Discover stunning flower images</p>
+        <a href="{% url 'flowers' %}" class="btn btn-primary">View Flowers</a>
+    </div>
+    
+    <div class="card text-center">
+        <h3>🦁 Animals Gallery</h3>
+        <p style="margin: 1rem 0; color: #7f8c8d;">See amazing animal images</p>
+        <a href="{% url 'animals' %}" class="btn btn-primary">View Animals</a>
+    </div>
+</div>
+{% endblock %}

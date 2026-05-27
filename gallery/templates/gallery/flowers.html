@@ -1,0 +1,27 @@
+{% extends 'gallery/base.html' %}
+
+{% block title %}Flowers Gallery - Gallery App{% endblock %}
+
+{% block content %}
+<h1 style="margin-bottom: 2rem;">🌸 Flowers Gallery</h1>
+
+{% if flowers %}
+<div class="gallery-grid">
+    {% for flower in flowers %}
+    <div class="gallery-item">
+        <img src="{{ flower.image.url }}" alt="{{ flower.title }}">
+        <div class="gallery-item-content">
+            <h3 class="gallery-item-title">{{ flower.title }}</h3>
+            {% if flower.description %}
+            <p class="gallery-item-description">{{ flower.description }}</p>
+            {% endif %}
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% else %}
+<div class="card text-center">
+    <p>No flower images available yet. Check back later!</p>
+</div>
+{% endif %}
+{% endblock %}

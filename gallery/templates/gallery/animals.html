@@ -1,0 +1,27 @@
+{% extends 'gallery/base.html' %}
+
+{% block title %}Animals Gallery - Gallery App{% endblock %}
+
+{% block content %}
+<h1 style="margin-bottom: 2rem;">🦁 Animals Gallery</h1>
+
+{% if animals %}
+<div class="gallery-grid">
+    {% for animal in animals %}
+    <div class="gallery-item">
+        <img src="{{ animal.image.url }}" alt="{{ animal.title }}">
+        <div class="gallery-item-content">
+            <h3 class="gallery-item-title">{{ animal.title }}</h3>
+            {% if animal.description %}
+            <p class="gallery-item-description">{{ animal.description }}</p>
+            {% endif %}
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% else %}
+<div class="card text-center">
+    <p>No animal images available yet. Check back later!</p>
+</div>
+{% endif %}
+{% endblock %}
